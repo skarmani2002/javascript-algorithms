@@ -40,5 +40,25 @@
     return false;
 
  }
+  // Sum of Tree by recursive method
+/*const treeSum = (root) =>{
+     if(root===null) return 0;
+     return root.val + rootSum(root.left)+ rootSum(root.right);
+}*/
+
+// Sum of tee by iterative 
+const treeSum = (root) =>{
+    if (root===null) return 0;
+    
+    const queue = [root]
+    let totalSum = 0;
+    while(root.length>0){
+        let current = queue.shift();
+        totalSum+= current;
+        if(current.right) queue.push(current.right);
+        if(current.left) queue.push(current.left);
+    }
+    return totalSum;
+}
  console.log(treeIncludes(a,"b"));
 
